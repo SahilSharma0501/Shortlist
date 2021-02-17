@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Shortlisting</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"> </script>
+</head>
+<style >
+html {
+  background-color: #56baed;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+ .container{
+margin: auto;
+margin-top: 200px;
+}
+.formContent {
+  margin: auto;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 550px;
+  /* position: relative; */
+  /* padding: 0px;  */
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+.year{
+  margin: 20px;
+}
+.degree{
+  margin-bottom: 20px;
+}
+
+</style>
+
+<body>
+<div class="container">
+  <div class="formContent">
+    <form class="" action="/upload" method="post" enctype="multipart/form-data">
+      <div class="stream">
+        <select class="degree" name="degree">
+          <option value="Mtech" selected>Mtech Shortlisting</option>
+          <option value="Phd">Phd Shortlisting</option>
+        </select>
+      </div>
+      <select name="year" class="year" id="dropdownYear" style="width: 120px;">
+      <input type="file" name="file">
+      <input type="submit" value="upload"></input>
+    </form>
+  </div>
+
+</div>
+<script type="text/javascript">
+$('#dropdownYear').each(function() {
+
+  var year = (new Date()).getFullYear();
+  var current = year;
+  year -= 10;
+  for (var i = 0; i <= 10; i++)
+  {
+    if ((year+i) == current)
+      $(this).append('<option selected value="' + (year + i) + '">' + (year + i) + '</option>');
+    else
+      $(this).append('<option value="' + (year + i) + '">' + (year + i) + '</option>');
+  }
+
+})
+</script>
+
+
+
+</body>
+
+</html>
